@@ -14,6 +14,6 @@ public class TestBase {
 
     @AfterSuite
     public void setDown() {
-        app.stop();
+        //   app.stop();
     }
 }

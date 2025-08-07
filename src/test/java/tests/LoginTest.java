@@ -15,8 +15,8 @@ public class LoginTest extends TestBase {
 
     @Test
     public void loginSuccess() {
-        app.getHelperUser().openLoginRegistrationForm();
-        app.getHelperUser().fillLoginRegistrationForm("dusm558@gmail.com", "Dusm12345@");
+        app.getHelperUser().openLoginForm();
+        app.getHelperUser().fillLoginForm("dusm558@gmail.com", "Dusm12345@");
         app.getHelperUser().submitLogin();
 
         Assert.assertTrue(app.getHelperUser().isLogged());
@@ -24,8 +24,8 @@ public class LoginTest extends TestBase {
 
     @Test
     public void loginSuccessModel() {
-        app.getHelperUser().openLoginRegistrationForm();
-        app.getHelperUser().fillLoginRegistrationForm("dusm5@gmail.com", "Dusm12345@");
+        app.getHelperUser().openLoginForm();
+        app.getHelperUser().fillLoginForm("dusm5@gmail.com", "Dusm12345@");
         app.getHelperUser().submitLogin();
 
         Assert.assertTrue(app.getHelperUser().isLogged());
@@ -34,22 +34,22 @@ public class LoginTest extends TestBase {
     //NEGATIVE TESTS
     @Test
     public void loginWrongEmail() {
-        app.getHelperUser().openLoginRegistrationForm();
-        app.getHelperUser().fillLoginRegistrationForm("dusm558@", "Dusm12345@");
+        app.getHelperUser().openLoginForm();
+        app.getHelperUser().fillLoginForm("dusm558@", "Dusm12345@");
         app.getHelperUser().submitLogin();
     }
 
     @Test
     public void loginWrongPassword() {
-        app.getHelperUser().openLoginRegistrationForm();
-        app.getHelperUser().fillLoginRegistrationForm("dusm558@gmail.com", "12345@");
+        app.getHelperUser().openLoginForm();
+        app.getHelperUser().fillLoginForm("dusm558@gmail.com", "12345@");
         app.getHelperUser().submitLogin();
     }
 
     @Test
     public void loginUnregisteredUser() {
-        app.getHelperUser().openLoginRegistrationForm();
-        app.getHelperUser().fillLoginRegistrationForm("dusm999@gmail.com", "Dusm12345@");
+        app.getHelperUser().openLoginForm();
+        app.getHelperUser().fillLoginForm("dusm999@gmail.com", "Dusm12345@");
         app.getHelperUser().submitLogin();
     }
 

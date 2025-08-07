@@ -9,11 +9,11 @@ public class HelperUser extends HelperBase {
         super(wd);
     }
 
-    public void openLoginRegistrationForm() {
+    public void openLoginForm() {
         click(By.xpath("//a[text()=' Log in ']"));
     }
 
-    public void fillLoginRegistrationForm(String email, String password) {
+    public void fillLoginForm(String email, String password) {
         type(By.id("email"), email);
         type(By.id("password"), password);
     }

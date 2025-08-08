@@ -1,6 +1,8 @@
 package manager;
 
+import models.User;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -17,8 +19,12 @@ public class HelperUser extends HelperBase {
         type(By.id("email"), email);
         type(By.id("password"), password);
     }
+    public void fillLoginForm(User user) {
+        type(By.id("email"), user.getEmail());
+        type(By.id("password"), user.getPassword());
+    }
 
-    public void submitLogin() {
+    public void submit() {
 
       click(By.xpath("//button[@type='submit' or text()='Y’alla!']"));
 
@@ -48,5 +54,22 @@ public class HelperUser extends HelperBase {
 //        WebElement element = wd.findElement(By.cssSelector("div.dialog-container>h2"));
 //        String text = element.getText();
 //        return text;
+    }
+
+    public void openRegistrationForm() {
+        click(By.xpath("//*[text()=' Sign up ']"));
+    }
+
+    public void fillRegistrationForm(User user) {
+        type(By.id("name"), user.getFirstName());
+        type(By.id("lastName"),user.getLastName());
+        type(By.id("email"), user.getEmail());
+        type(By.id("password"), user.getPassword());
+    }
+
+    public void checkPolicy() {
+        //click(By.id("terms-of-use"));
+        JavascriptExecutor js = (JavascriptExecutor) wd;
+        js.executeScript("document.querySelector('#terms-of-use').click()");
     }
 }

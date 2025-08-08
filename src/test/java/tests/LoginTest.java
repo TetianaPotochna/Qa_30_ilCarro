@@ -1,5 +1,6 @@
 package tests;
 
+import models.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -15,10 +16,21 @@ public class LoginTest extends TestBase {
     }
 
     @Test
+    public void loginSuccess1() {
+        User user = new User().setEmail("dusm558@gmail.com").setPassword("Dusm12345@");
+//        user.setEmail("dusm558@gmail.com");
+//        user.setPassword("Dusm12345@");
+
+        app.getHelperUser().openLoginForm();
+        app.getHelperUser().fillLoginForm(user);
+        app.getHelperUser().submit();
+    }
+
+    @Test
     public void loginSuccess() {
         app.getHelperUser().openLoginForm();
         app.getHelperUser().fillLoginForm("dusm558@gmail.com", "Dusm12345@");
-        app.getHelperUser().submitLogin();
+        app.getHelperUser().submit();
 
         //Assert if element with text "Logged in success" is present
         Assert.assertEquals(app.getHelperUser().getMessage(), "Logged in success");
@@ -31,7 +43,7 @@ public class LoginTest extends TestBase {
     public void loginSuccessModel() {
         app.getHelperUser().openLoginForm();
         app.getHelperUser().fillLoginForm("dusm5@gmail.com", "Dusm12345@");
-        app.getHelperUser().submitLogin();
+        app.getHelperUser().submit();
 
         //Assert if element with text "Logged in success" is present
         Assert.assertEquals(app.getHelperUser().getMessage(), "Logged in success");
@@ -50,21 +62,21 @@ public class LoginTest extends TestBase {
 //    public void loginWrongEmail() {
 //        app.getHelperUser().openLoginForm();
 //        app.getHelperUser().fillLoginForm("dusm558@", "Dusm12345@");
-//        app.getHelperUser().submitLogin();
+//        app.getHelperUser().submit();
 //    }
 //
 //    @Test
 //    public void loginWrongPassword() {
 //        app.getHelperUser().openLoginForm();
 //        app.getHelperUser().fillLoginForm("dusm558@gmail.com", "12345@");
-//        app.getHelperUser().submitLogin();
+//        app.getHelperUser().submit();
 //    }
 //
 //    @Test
 //    public void loginUnregisteredUser() {
 //        app.getHelperUser().openLoginForm();
 //        app.getHelperUser().fillLoginForm("dusm999@gmail.com", "Dusm12345@");
-//        app.getHelperUser().submitLogin();
+//        app.getHelperUser().submit();
 //    }
 
 }

@@ -20,17 +20,18 @@ public class HelperUser extends HelperBase {
 
     public void submitLogin() {
 
-//        click(By.xpath("//button[@type='submit' or text()='Y’alla!']"));
+      click(By.xpath("//button[@type='submit' or text()='Y’alla!']"));
+
 //        click(By.xpath("//*[contains(@class, 'positive-button') and contains(@class, 'ng-star-inserted')]"));
 
-        By submitButton = By.xpath("//button[@type='submit' or text()='Y’alla!']");
-        WebElement button = wd.findElement(submitButton);
-
-        if (button.isEnabled()) {
-            button.click();
-        By positiveButton = By.xpath("//*[contains(@class, 'positive-button') and contains(@class, 'ng-star-inserted')]");
-        wd.findElement(positiveButton).click();
-    }
+//        By submitButton = By.xpath("//button[@type='submit' or text()='Y’alla!']");
+//        WebElement button = wd.findElement(submitButton);
+//
+//        if (button.isEnabled()) {
+//            button.click();
+//        By positiveButton = By.xpath("//*[contains(@class, 'positive-button') and contains(@class, 'ng-star-inserted')]");
+//        wd.findElement(positiveButton).click();
+//    }
 
 }
     public boolean isLogged() {
@@ -40,4 +41,12 @@ public class HelperUser extends HelperBase {
         click(By.xpath("//*[@href='/logout?url=%2Fsearch']"));
     }
 
+    public String getMessage() {
+        //pause(2000);
+       return wd.findElement(By.cssSelector(".dialog-container>h2")).getText();
+
+//        WebElement element = wd.findElement(By.cssSelector("div.dialog-container>h2"));
+//        String text = element.getText();
+//        return text;
+    }
 }

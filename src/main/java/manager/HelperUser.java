@@ -19,6 +19,7 @@ public class HelperUser extends HelperBase {
         type(By.id("email"), email);
         type(By.id("password"), password);
     }
+
     public void fillLoginForm(User user) {
         type(By.id("email"), user.getEmail());
         type(By.id("password"), user.getPassword());
@@ -26,7 +27,7 @@ public class HelperUser extends HelperBase {
 
     public void submit() {
 
-      click(By.xpath("//button[@type='submit' or text()='Y’alla!']"));
+        click(By.xpath("//button[@type='submit' or text()='Y’alla!']"));
 
 //        click(By.xpath("//*[contains(@class, 'positive-button') and contains(@class, 'ng-star-inserted')]"));
 
@@ -39,22 +40,25 @@ public class HelperUser extends HelperBase {
 //        wd.findElement(positiveButton).click();
 //    }
 
-}
+    }
+
     public boolean isLogged() {
         return isElementPresent(By.xpath("//*[@href='/logout?url=%2Fsearch']"));
     }
+
     public void logout() {
         click(By.xpath("//*[@href='/logout?url=%2Fsearch']"));
     }
 
     public String getMessage() {
         //pause(2000);
-       return wd.findElement(By.cssSelector(".dialog-container>h2")).getText();
+        return wd.findElement(By.cssSelector(".dialog-container>h2")).getText();
 
 //        WebElement element = wd.findElement(By.cssSelector("div.dialog-container>h2"));
 //        String text = element.getText();
 //        return text;
     }
+
 
     public void openRegistrationForm() {
         click(By.xpath("//*[text()=' Sign up ']"));
@@ -62,7 +66,7 @@ public class HelperUser extends HelperBase {
 
     public void fillRegistrationForm(User user) {
         type(By.id("name"), user.getFirstName());
-        type(By.id("lastName"),user.getLastName());
+        type(By.id("lastName"), user.getLastName());
         type(By.id("email"), user.getEmail());
         type(By.id("password"), user.getPassword());
     }
@@ -72,4 +76,16 @@ public class HelperUser extends HelperBase {
         JavascriptExecutor js = (JavascriptExecutor) wd;
         js.executeScript("document.querySelector('#terms-of-use').click()");
     }
+
+    public boolean buttonSubmitDisabled() {
+        WebElement button = wd.findElement(By.xpath("//button[@type='submit' or text()='Y’alla!']"));
+
+        if (!button.isEnabled()) {
+            WebElement incorrectInput = wd.findElement(By.xpath("//div[@class='error']/div"));
+            String messageText = incorrectInput.getText();
+        }
+        return true;
+
+    }
+
 }

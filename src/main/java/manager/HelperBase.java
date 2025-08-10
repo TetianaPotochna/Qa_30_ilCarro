@@ -43,4 +43,13 @@ public class HelperBase {
     public void clickOkButton() {
         click(By.xpath("//button[text()='Ok']"));
     }
+
+    public void clearForm(By locator) {
+        String text = "";
+        WebElement element = wd.findElement(locator);
+        element.click();
+        element.clear();
+    }
+
+
 }

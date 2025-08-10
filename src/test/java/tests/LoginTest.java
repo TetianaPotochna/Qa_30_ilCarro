@@ -1,5 +1,7 @@
 package tests;
 
+import manager.ApplicationManager;
+import manager.HelperBase;
 import models.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -82,8 +84,6 @@ public class LoginTest extends TestBase {
     }
 
 
-
-
     @AfterMethod
     public void postCondition() {
         app.getHelperUser().clickOkButton();
@@ -97,7 +97,5 @@ public class LoginTest extends TestBase {
 //
 //        Assert.assertTrue(app.getHelperUser().buttonSubmitDisabled(), "It'snot look like email");
 //
-//        app.getHelperUser().clearForm(By.xpath("//input[@autocomplete='username']"));
-//        app.getHelperUser().clearForm(By.xpath("//input[@autocomplete='current-password']"));
 //    }
 }

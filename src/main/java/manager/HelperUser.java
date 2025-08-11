@@ -1,10 +1,8 @@
 package manager;
 
 import models.User;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
 public class HelperUser extends HelperBase {
     public HelperUser(WebDriver wd) {
@@ -77,15 +75,22 @@ public class HelperUser extends HelperBase {
         js.executeScript("document.querySelector('#terms-of-use').click()");
     }
 
-    public boolean buttonSubmitDisabled() {
-        WebElement button = wd.findElement(By.xpath("//button[@type='submit' or text()='Y’alla!']"));
-
-        if (!button.isEnabled()) {
-            WebElement incorrectInput = wd.findElement(By.xpath("//div[@class='error']/div"));
-            String messageText = incorrectInput.getText();
-        }
-        return true;
-
+    public String getErrorText() {
+        return wd.findElement(By.cssSelector("div.error")).getText();
     }
 
+    public void checkPolicyXY() {
+        if (!wd.findElement(By.id("terms-of-use")).isSelected()) {
+            WebElement label = wd.findElement(By.cssSelector("label[for='terms-of-use']"));
+
+            Rectangle rect = label.getRect();
+            int w = rect.getWidth();
+
+            //Dimension size = wd.manage().window().getSize();
+
+            int xOffSet = -w / 2;
+            Actions actions = new Actions(wd);
+            actions.moveToElement(label, xOffSet, 0).click().release().perform();
+        }
+    }
 }

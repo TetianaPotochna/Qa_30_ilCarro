@@ -6,12 +6,12 @@ public class User {
     private String email;
     private String password;
 
-    public User setFirstName(String firstName) {
+    public User withFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
 
-    public User setLastName(String lastName) {
+    public User withLastName(String lastName) {
         this.lastName = lastName;
         return this;
 

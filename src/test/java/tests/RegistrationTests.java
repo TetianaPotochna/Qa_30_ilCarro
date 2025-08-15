@@ -1,7 +1,6 @@
 package tests;
 
 import models.User;
-import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -170,5 +169,6 @@ public class RegistrationTests extends TestBase {
     @AfterMethod
     public void postCondition() {
         app.getHelperUser().clickOkButton();
+        app.getHelperUser().checkPolicy();
     }
 }

@@ -1,0 +1,4 @@
+14:19:25.396 INFO  manager.ApplicationManager -- All tests runs in Chrome Browser
+14:19:26.336 INFO  tests.TestBase -- Name of method-->loginSuccess
+14:19:31.377 INFO  tests.TestBase -- Test data ---> email: 'dusm558@gmail.com' & password 'Dusm12345@'
+14:19:32.787 INFO  tests.TestBase -- Assert checked is Element 'Log out' present

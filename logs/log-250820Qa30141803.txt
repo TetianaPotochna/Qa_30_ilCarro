@@ -1,0 +1,2 @@
+14:18:05.406 INFO  manager.ApplicationManager -- All tests runs in Chrome Browser
+14:18:06.661 INFO  tests.TestBase -- Name of method-->loginSuccess
